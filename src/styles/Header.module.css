@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 2rem;
+  padding: 2rem calc(50% - 30rem);
+  border-bottom: 2px #0D0D46 solid;
+  width: calc(100% - 2rem);
+}
+
+.container svg {
+  height: 4rem;
+  width: auto;
+}
+
+.links {
+  transform: translateY(.3rem);
+}
+
+.container a {
+  margin-left: 3rem;
+}
+
+@media (max-width: 645px) {
+  .container {
+    padding: 2rem calc(50% - 30rem) 1rem;
+  }
+
+  .container svg {
+    height: 3rem;
+  }
+
+  .container a {
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+  }
+}
