@@ -22,6 +22,10 @@
   padding: .75rem;
 }
 
+.paragraph {
+  color: #0D0D46;
+}
+
 .figure {
   margin: 0;
 }
@@ -38,8 +42,9 @@
   text-align: center;
   line-height: 1.25;
   font-size: 14px;
+  color: #0D0D46;
 }
 
 .credit {
-  color: #666;
+  color: #666;;
 }

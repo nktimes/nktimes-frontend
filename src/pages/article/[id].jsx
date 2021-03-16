@@ -9,7 +9,7 @@ function Article({ article }) {
 
   const Paragraph = ({ block }) => (
     // TODO: Implement the Paragraph component
-    <p>This is a paragraph.</p>
+    <p className={styles.paragraph}>This is a paragraph.</p>
   );
 
   const Image = ({ block }) => {

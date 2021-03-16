@@ -19,6 +19,11 @@
 
 .container a {
   margin-left: 3rem;
+  border-bottom: 4px transparent solid;
+}
+
+.container a:hover, .container a:active {
+  border-bottom: 4px #00ADB5 solid;
 }
 
 @media (max-width: 645px) {
@@ -33,5 +38,30 @@
   .container a {
     font-size: 1.5rem;
     margin-left: 1.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .container svg {
+    height: 2rem;
+  }
+
+  .container a {
+    font-size: 1rem;
+    margin-left: 1.25rem;
+  }
+
+  .links {
+    transform: translateY(.4rem);
+  }
+}
+
+@media (max-width: 320px) {
+  .container a {
+    margin-left: 1rem;
+  }
+
+  .links {
+    transform: translateY(.3rem);
   }
 }
