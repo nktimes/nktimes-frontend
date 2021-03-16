@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-
+import Header from '@/parts/header';
 import { getArticle } from '@/services/api';
 import styles from '@/styles/Article.module.css';
 
@@ -7,10 +7,11 @@ function Article({ article }) {
   const router = useRouter();
   const articleId = router.query.id;
 
-  const Paragraph = ({ block }) => (
+  const Paragraph = ({ block }) => {
     // TODO: Implement the Paragraph component
-    <p className={styles.paragraph}>This is a paragraph.</p>
-  );
+    if (!block.content) return null;
+    return <p className={styles.paragraph}> {block.content} </p>;
+  };
 
   const Image = ({ block }) => {
     if (!block.src) return null;
@@ -24,7 +25,6 @@ function Article({ article }) {
         caption = <figcaption className={styles.caption}>{block.caption.trim()}</figcaption>
       }
     }
-
     return (
       <figure className={styles.figure}>
         <img src={block.src} className={styles.img} />
@@ -44,6 +44,7 @@ function Article({ article }) {
   // TODO: Add Header to this page. (Note: Look at explore.jsx)
   return (
     <div className={styles.container}>
+      <Header />
       <div className={styles.article}>
         <h1>{article.title}</h1>
         {article.summary && <span className={styles.summary}>{article.summary}</span>}
