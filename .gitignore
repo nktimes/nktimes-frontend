@@ -1,5 +1,6 @@
 .DS_Store
 .firebase
+secret.json
 
 # Logs
 logs
