@@ -1,5 +1,15 @@
-import '@/styles/global.css';
+import ReactTooltip from 'react-tooltip';
 
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+import '@/styles/global.css';
+import { AuthProvider } from '@/services/firebase';
+
+export default function NKTimes({ Component, pageProps }) {
+  return (
+    <AuthProvider>
+      <>
+        <Component {...pageProps} />
+        <ReactTooltip effect="solid" />
+      </>
+    </AuthProvider>
+  );
 }

@@ -20,10 +20,31 @@
 .container a {
   margin-left: 3rem;
   border-bottom: 4px transparent solid;
+  transition: border .2s, border-bottom .2s;
 }
 
 .container a:hover, .container a:active {
   border-bottom: 4px #00ADB5 solid;
+}
+
+a.avatar {
+  margin-left: 2rem;
+  border-radius: 50%;
+  display: inline-flex;
+  position: relative;
+  bottom: -.85rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 4px transparent solid;
+}
+
+a.avatar:hover {
+  border: 4px #00ADB5 solid;
+}
+
+.avatar img {
+  height: 100%;
+  border-radius: 50%;
 }
 
 @media (max-width: 645px) {
@@ -38,6 +59,12 @@
   .container a {
     font-size: 1.5rem;
     margin-left: 1.5rem;
+  }
+
+  a.avatar {
+    height: 3rem;
+    margin-left: 1rem;
+    bottom: -4px;
   }
 }
 
@@ -54,6 +81,11 @@
   .links {
     transform: translateY(.4rem);
   }
+
+  a.avatar {
+    height: calc(2rem + 8px);
+    margin-left: .75rem;
+  }
 }
 
 @media (max-width: 320px) {
@@ -62,6 +94,11 @@
   }
 
   .links {
-    transform: translateY(.3rem);
+    transform: translateY(4px);
+  }
+
+  a.avatar {
+    height: calc(1.75rem + 8px);
+    margin-left: .5rem;
   }
 }

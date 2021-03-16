@@ -1,7 +1,21 @@
 import Link from 'next/link';
 import styles from '@/styles/Header.module.css';
+import { firebase, useAuth } from '@/services/firebase';
 
 export default function Header() {
+  const { user } = useAuth();
+
+  const login = (e) => {
+    e.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider);
+  }
+
+  const logout = (e) => {
+    e.preventDefault();
+    firebase.auth().signOut();
+  }
+
   return (
     <div className={styles.container}>
       <svg width="518" height="139" viewBox="0 0 518 139" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,9 +24,14 @@ export default function Header() {
       </svg>
 
       <div className={styles.links}>
-        <Link href="/">Latest</Link>
+        <Link href="/article/hello">Latest</Link>
         <Link href="/explore">Explore</Link>
-        <Link href="/article/hello">Test</Link>
+        {!user && <a href="#" onClick={login}>Login</a>}
+        {user && (
+          <a href="#" data-tip={user.displayName} data-place="bottom" onClick={logout} className={styles.avatar}>
+            <img src={user.photoURL} />
+          </a>
+        )}
       </div>
     </div>
   )
