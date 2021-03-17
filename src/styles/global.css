@@ -18,3 +18,18 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.wiki-tooltip.show {
+  opacity: 1 !important;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wiki-tooltip::before, .wiki-tooltip::after {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .wiki-tooltip {
+    display: none !important;
+  }
+}

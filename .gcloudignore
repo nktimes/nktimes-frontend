@@ -1,6 +1,5 @@
 .DS_Store
 .firebase
-serviceAccount.js
 .yarn
 
 # Logs

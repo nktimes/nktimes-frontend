@@ -11,6 +11,7 @@
 .container svg {
   height: 4rem;
   width: auto;
+  cursor: pointer;
 }
 
 .links {
@@ -34,6 +35,7 @@ a.avatar {
   position: relative;
   bottom: -.85rem;
   height: 4rem;
+  width: 4rem;
   border-radius: 50%;
   border: 4px transparent solid;
 }
@@ -63,6 +65,7 @@ a.avatar:hover {
 
   a.avatar {
     height: 3rem;
+    width: 3rem;
     margin-left: 1rem;
     bottom: -4px;
   }
@@ -84,6 +87,7 @@ a.avatar:hover {
 
   a.avatar {
     height: calc(2rem + 8px);
+    width: calc(2rem + 8px);
     margin-left: .75rem;
   }
 }
@@ -99,6 +103,7 @@ a.avatar:hover {
 
   a.avatar {
     height: calc(1.75rem + 8px);
+    width: calc(1.75rem + 8px);
     margin-left: .5rem;
   }
 }

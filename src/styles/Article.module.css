@@ -2,13 +2,19 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-bottom: 4rem;
+  padding: 0 .5rem 4rem;
 }
 
 .article {
   width: calc(100% - 2rem);
   max-width: 40rem;
+  margin-top: 3rem;
   line-height: 1.5;
+  transition: all .4s;
+}
+
+.article.shiftLeft {
+  transform: translateX(-20rem);
 }
 
 .article h1 {
@@ -21,10 +27,20 @@
   border: 4px #00ADB5 solid;
   border-radius: .5rem;
   padding: .75rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
 
 .paragraph {
   color: #0D0D46;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.paragraph .hint {
+  transition: all .2s;
+  border-bottom: 2px dotted #00ADB5;
+  cursor: pointer;
 }
 
 .figure {
@@ -48,4 +64,13 @@
 
 .credit {
   color: #666;;
+}
+
+.loading * {
+  cursor: progress !important;
+}
+
+.loading .paragraph .hint {
+  color: #666;
+  border-bottom: 2px dotted #999;
 }

@@ -1,5 +1,5 @@
 import firebaseAdmin from 'firebase-admin';
-import serviceAccount from './secret.json';
+import serviceAccount from './serviceAccount';
 
 if (typeof window === 'undefined' && !firebaseAdmin.apps.length) {
   firebaseAdmin.initializeApp({

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ReactTooltip from 'react-tooltip';
 
 import '@/styles/global.css';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { AuthProvider } from '@/services/firebase';
 
 export default function NKTimes({ Component, pageProps }) {
