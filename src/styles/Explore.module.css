@@ -58,7 +58,78 @@
   text-align: center;
   line-height: 3rem;
   width: 100%;
+  font-weight: 700;
+  font-size: 35px;
   position: absolute;
   bottom: 0;
   color: #FFFFFF;
+}
+
+.politics {
+  background: #FFDADA;
+}
+
+.politics img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.politics p {
+  text-align: right;
+  width: 98%;
+  line-height: 15rem;
+  position: absolute;
+  bottom: 0;
+  font-weight: 900;
+  font-size: 64px;
+  color: #0D0D46;
+}
+
+.art {
+  background: #00ADB5;
+}
+
+.art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 9px solid #00ADB5;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.art p {
+  text-align: right;
+  width: 96.9%;
+  line-height: 21rem;
+  position: absolute;
+  bottom: 0;
+  font-weight: 520;
+  font-size: 50px;
+  background: linear-gradient(270deg, #00ADB5 -4%, #FFDADA 100%);
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-size: 2.5em 1.3em;
+}
+
+.view {
+  background: #000000;
+}
+
+.view img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.view p {
+  text-align: right;
+  width: 30%;
+  line-height: 21rem;
+  position: absolute;
+  bottom: 0;
+  font-weight: 600;
+  font-size: 50px;
+  color:#FFFFFF;
 }
