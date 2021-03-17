@@ -1,14 +1,13 @@
 import Link from 'next/link';
 import styles from '@/styles/Header.module.css';
-import { firebase, useAuth } from '@/services/firebase';
+import { firebase, useAuth, signIn } from '@/services/firebase';
 
 export default function Header() {
   const { user } = useAuth();
 
   const login = (e) => {
     e.preventDefault();
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider);
+    signIn();
   }
 
   const logout = (e) => {

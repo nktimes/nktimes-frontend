@@ -9,6 +9,7 @@ const sites = {
   cbckids: 'CBC Kids News',
   wapo: 'The Washington Post',
   wpkids: 'KidsPost',
+  timeForKids: 'Time for Kids',
 }
 
 const Article = ({ article }) => (
