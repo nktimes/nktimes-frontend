@@ -24,7 +24,7 @@ export default function Header() {
       </svg>
 
       <div className={styles.links}>
-        <Link href="/article/hello">Latest</Link>
+        <Link href="/article/1042b347-63ec-48ed-8d13-ef8fc5a4ba72">Latest</Link>
         <Link href="/explore">Explore</Link>
         {!user && <a href="#" onClick={login}>Login</a>}
         {user && (

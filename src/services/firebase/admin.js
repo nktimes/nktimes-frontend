@@ -1,7 +1,7 @@
 import firebaseAdmin from 'firebase-admin';
 import serviceAccount from './secret.json';
 
-if (!firebaseAdmin.apps.length) {
+if (typeof window === 'undefined' && !firebaseAdmin.apps.length) {
   firebaseAdmin.initializeApp({
     credential: firebaseAdmin.credential.cert({
       privateKey: serviceAccount.private_key,
