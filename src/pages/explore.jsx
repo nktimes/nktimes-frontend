@@ -14,6 +14,18 @@ export default function Explore() {
           <p>Technology</p>
         </div>
         {/** TODO: Add the other three cards */}
+        <div className={`${styles.card} ${styles.politics}`}>
+          <img src="/march.png" alt="A march" />
+          <p>Politics</p>
+        </div>
+        <div className={`${styles.card} ${styles.art}`}>
+          <img src="/art.png" alt="Art" />
+          <p>Art</p>
+        </div>
+        <div className={`${styles.card} ${styles.view}`}>
+          <img src="/globe.png" alt="The World" />
+          <p>View</p>
+        </div>
       </div>
     </div>
   )
