@@ -15,7 +15,7 @@ export const getArticles = async (page = 0) => {
   const articles = await db
     .collection('articles')
     .orderBy('time', 'desc')
-    .select('url', 'site', 'time', 'title', 'summary')
+    .select('url', 'site', 'time', 'title', 'summary', 'articleGraph')
     .get();
   return articles.docs.map(doc => ({ ...doc.data(), id: doc.id }))
 }

@@ -17,6 +17,7 @@
   margin: 0;
   padding: .5rem 0;
   border-bottom: 1px solid #ccc;
+  position: relative;
 }
 
 .article:last-child {
@@ -44,6 +45,15 @@
   line-height: 1.5;
   margin-top: .5rem;
   font-size: 1.25rem;
+}
+
+.article img {
+  width: 4rem;
+  height: 3.75rem;
+  margin-right: .5rem;
+  border-radius: .25rem;
+  object-fit: cover;
+  float: left;
 }
 
 .article > *:last-child {

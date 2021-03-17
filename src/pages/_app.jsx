@@ -5,6 +5,10 @@ import '@/styles/global.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { AuthProvider } from '@/services/firebase';
 
+String.prototype.getStaticUrl = function() {
+  return `https://storage.googleapis.com/nktimes-2903a.appspot.com/${this.valueOf()}`
+}
+
 export default function NKTimes({ Component, pageProps }) {
   const [showTooltip, setShowTooltip] = useState(false);
 
