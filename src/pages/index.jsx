@@ -5,7 +5,10 @@ import Header from '@/parts/header';
 import styles from '@/styles/Home.module.css';
 
 const sites = {
-  nyt: 'The New York Times'
+  nyt: 'The New York Times',
+  cbckids: 'CBC Kids News',
+  wapo: 'The Washington Post',
+  wpkids: 'KidsPost',
 }
 
 const Article = ({ article }) => (

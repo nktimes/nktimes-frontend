@@ -6,7 +6,9 @@ import styles from '@/styles/Article.module.css';
 import { firebase, useAuth } from '@/services/firebase';
 
 const logos = {
-  nyt: '/nyt.svg',
+  nyt: ['/nyt.svg', 28],
+  cbckids: ['/cbckids.svg', 40],
+  wpkids: ['/wapo.svg', 28],
 }
 
 function Article({ article }) {
@@ -14,7 +16,6 @@ function Article({ article }) {
   const { user } = useAuth();
   const [recorded, setRecorded] = useState(false);
   const articleId = router.query.id;
-  console.log(user)
 
   useEffect(async () => {
     if (recorded) return
@@ -29,9 +30,8 @@ function Article({ article }) {
   }, [user])
 
   const Paragraph = ({ block }) => {
-    // TODO: Implement the Paragraph component
-    if (!block.content) return null;
-    return <p className={styles.paragraph}> {block.content} </p>;
+    if (!block.content || block.content === 'Advertisement') return null;
+    return <p className={styles.paragraph}>{block.content}</p>;
   };
 
   const Image = ({ block }) => {
@@ -56,18 +56,19 @@ function Article({ article }) {
     switch (block.type) {
     case 'text': return <Paragraph block={block} />;
     case 'img': return <Image block={block} />;
-    default: return <span>Unrecognized block type.</span>;
+    default:
+      console.error('Unrecognized block type.', block)
+      return null
     }
   }
 
-  // TODO: Add Header to this page. (Note: Look at explore.jsx)
   return (
     <div className={styles.container}>
       <Header />
       <div className={styles.article}>
         {article.site && logos[article.site] && (
           <a href={article.url} target="_blank">
-            <img className={styles.siteIcon} src={logos[article.site]} height={24} />
+            <img className={styles.siteIcon} src={logos[article.site][0]} height={logos[article.site][1]} />
           </a>
         )}
         <h1>{article.title}</h1>
