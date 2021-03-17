@@ -1,11 +1,32 @@
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { getArticle } from '@/services/api';
 import styles from '@/styles/Article.module.css';
+import { firebase, useAuth } from '@/services/firebase';
+
+const logos = {
+  nyt: '/nyt.svg',
+}
 
 function Article({ article }) {
   const router = useRouter();
+  const { user } = useAuth();
+  const [recorded, setRecorded] = useState(false);
   const articleId = router.query.id;
+  console.log(user)
+
+  useEffect(async () => {
+    if (recorded) return
+    if (typeof window === 'undefined') return
+    if (!user) return;
+    const db = firebase.firestore()
+    db.collection('records').doc(user.uid).collection('read').doc().set({
+      articleId,
+      createdAt: new Date().toISOString(),
+    })
+    setRecorded(true)
+  }, [user])
 
   const Paragraph = ({ block }) => (
     // TODO: Implement the Paragraph component
@@ -16,10 +37,8 @@ function Article({ article }) {
     if (!block.src) return null;
     let caption = null;
     if (block.caption) {
-      if (block.caption.indexOf('Credit...') >= 0) {
-        const description = block.caption.slice(0, block.caption.indexOf('Credit...')).trim();
-        const credit = block.caption.slice(block.caption.indexOf('Credit...') + 9).trim();
-        caption = <figcaption className={styles.caption}>{description} <span className={styles.credit}>{credit}</span></figcaption>
+      if (block.credit) {
+        caption = <figcaption className={styles.caption}>{block.caption.trim()} <span className={styles.credit}>{block.credit}</span></figcaption>
       } else {
         caption = <figcaption className={styles.caption}>{block.caption.trim()}</figcaption>
       }
@@ -45,6 +64,11 @@ function Article({ article }) {
   return (
     <div className={styles.container}>
       <div className={styles.article}>
+        {article.site && logos[article.site] && (
+          <a href={article.url} target="_blank">
+            <img className={styles.siteIcon} src={logos[article.site]} height={24} />
+          </a>
+        )}
         <h1>{article.title}</h1>
         {article.summary && <span className={styles.summary}>{article.summary}</span>}
         {article.time && article.length && <span>{new Date(article.time).toLocaleString()}</span>}
