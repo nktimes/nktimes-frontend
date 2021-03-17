@@ -20,7 +20,7 @@ export default function Explore() {
         </div>
         <div className={`${styles.card} ${styles.art}`}>
           <img src="/art.png" alt="Art" />
-          <p>ART</p>
+          <p>Art</p>
         </div>
         <div className={`${styles.card} ${styles.view}`}>
           <img src="/globe.png" alt="The World" />
