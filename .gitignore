@@ -2,6 +2,8 @@
 .firebase
 serviceAccount.js
 .yarn
+.pnp.js
+.vscode
 
 # Logs
 logs

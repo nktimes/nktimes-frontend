@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
+import Quiz from './quiz'
 import { useAuth, signIn, firebase } from '@/services/firebase';
 import styles from '@/styles/Progress.module.css';
 
@@ -72,6 +73,7 @@ export default function Progress({ articleId }) {
 
   return (
     <div className={styles.progress}>
+      <Quiz />
       {haveReadThisArticle || <a href="#" onClick={finish} className={styles.finish}>Finish reading</a>}
       {haveReadThisArticle && <a href="#" onClick={next} className={styles.finish}>Next article</a>}
       <div className={styles.ring}>
