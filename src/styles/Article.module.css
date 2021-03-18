@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 0 .5rem 4rem;
+  padding: 0 .5rem 12rem;
 }
 
 .article {
@@ -14,7 +14,7 @@
 }
 
 .article.shiftLeft {
-  transform: translateX(-20rem);
+  transform: translateX(calc(50vw - 66rem));
 }
 
 .article h1 {

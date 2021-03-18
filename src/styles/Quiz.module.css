@@ -2,18 +2,34 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding-top: 1rem;
   justify-content:left;
 }
   
 .option {
   display: inline-block;
-  background-color: #00ADB5;
-  padding: .75rem 1.5rem;
+  border: 4px solid #00ADB5;
+  outline-offset: -4px;
+  outline: 4px solid #00ADB5;
+  transition: all .2s;
+  padding: .5rem;
   font-size: 1.25rem;
-  color: #fff;
+  color: #333;
   line-height: 2rem;
-  border-radius: .5rem;
-  min-width: 13rem;
+  min-width: 11rem;
   text-align: center;
+  margin-right: .5rem;
+}
+
+.option:hover, .correct, .wrong {
+  outline-offset: -6px;
+}
+
+.correct {
+  outline-color: rgb(35, 203, 167);
+  border-color: rgb(35, 203, 167);
+}
+
+.wrong {
+  outline-color: rgb(224, 130, 131);
+  border-color: rgb(224, 130, 131);
 }

@@ -19,18 +19,3 @@ export const getArticles = async (page = 0) => {
     .get();
   return articles.docs.map(doc => ({ ...doc.data(), id: doc.id }))
 }
-
-export const recordQuizResponse = async (uid, articleId, question, answer, isCorrect) => {
-  await db
-    .collection('records')
-    .doc(uid)
-    .collection('quizzes')
-    .doc()
-    .set({
-      articleId,
-      question,
-      answer,
-      isCorrect,
-      timestamp: Date.now()
-    })
-}

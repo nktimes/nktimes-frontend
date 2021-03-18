@@ -120,7 +120,7 @@ function Article({ article }) {
         {article.summary && <span className={styles.summary}>{article.summary}</span>}
         {article.time && article.length && <span>{new Date(article.time).toLocaleString()}</span>}
         {article.parts.map((block, i) => <Block block={block} key={`block-${i}`} />)}
-        <Progress articleId={articleId} />
+        <Progress articleId={articleId} isNewsReport={!article.url.includes('/opinion/')} />
       </div>
       {showTooltip && <ReactTooltip
         id="hint"

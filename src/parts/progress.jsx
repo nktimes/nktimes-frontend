@@ -7,10 +7,11 @@ import Quiz from './quiz'
 import { useAuth, signIn, firebase } from '@/services/firebase';
 import styles from '@/styles/Progress.module.css';
 
-export default function Progress({ articleId }) {
+export default function Progress({ articleId, isNewsReport = true }) {
   const { user } = useAuth();
   const router = useRouter();
   const [articleIds, setArticleIds] = useState([]);
+  const [showQuiz, setShowQuiz] = useState(false);
 
   const updateArticleIds = async () => {
     if (!user) return;
@@ -31,9 +32,15 @@ export default function Progress({ articleId }) {
       }
     }
     setArticleIds(newArticleIds)
+    if (newArticleIds.includes(articleId)) {
+      setShowQuiz(true)
+    }
   }
 
   useEffect(updateArticleIds, [user])
+  useEffect(() => {
+    setShowQuiz(false)
+  }, [articleId])
 
   const loginHandle = (e) => {
     e.preventDefault();
@@ -46,8 +53,12 @@ export default function Progress({ articleId }) {
     </div>
   )
 
-  const finish = async (e) => {
+  const handleClick = (e) => {
     e.preventDefault();
+    setShowQuiz(true);
+  }
+
+  const finish = async () => {
     const db = firebase.firestore()
     await db.collection('records').doc(user.uid).collection('read').doc().set({
       articleId,
@@ -73,8 +84,7 @@ export default function Progress({ articleId }) {
 
   return (
     <div className={styles.progress}>
-      <Quiz />
-      {haveReadThisArticle || <a href="#" onClick={finish} className={styles.finish}>Finish reading</a>}
+      {haveReadThisArticle || <a href="#" onClick={handleClick} className={styles.finish}>Finish reading</a>}
       {haveReadThisArticle && <a href="#" onClick={next} className={styles.finish}>Next article</a>}
       <div className={styles.ring}>
         <CircularProgressbar
@@ -95,6 +105,14 @@ export default function Progress({ articleId }) {
         {remainingCount > 0 && <span>Read {remainingCount} more article{remainingCount > 1 && 's'} to achieve your daily goal</span>}
         {remainingCount === 0 && <span>You have achieved today’s reading goal!</span>}
       </div>
+      {showQuiz && (
+        <Quiz
+          uid={user.uid}
+          articleId={articleId}
+          isNewsReport={isNewsReport}
+          onFinish={finish}
+        />
+      )}
     </div>
   )
 }
