@@ -15,9 +15,13 @@
   font-size: 1.25rem;
   color: #333;
   line-height: 2rem;
-  min-width: 11rem;
+  min-width: 9.5rem;
   text-align: center;
-  margin-right: .5rem;
+  max-width: calc(50% - 1rem);
+}
+
+.option:last-child {
+  margin-left: .5rem;
 }
 
 .option:hover, .correct, .wrong {
